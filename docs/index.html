@@ -3,10 +3,306 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/styles.css">
   <title>MACH-IV Clustering</title>
   <body>
+    <header>
+      <h1>MACH-IV Clustering Exploration</h1>
+      <p>Using clustering algorithms to explore patterns in Machiavellianism (MACH-IV) personality data. Created by Jeffrey Hoelzel Jr, Sean Golez, and Luke Bowen.</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#kmeans">K-Means</a></li>
+        <li><a href="#gmm">Gaussian Mixture Model</a></li>
+        <li><a href="#spectral">Spectral Clustering</a></li>
+        <li><a href="#hierarchical">Hierarchical Clustering</a></li>
+      </ul>
+    </nav>
+
     <main>
-      <h1>MACH-IV Clustering</h1>
+      <section class="intro-card">
+        <h2>Project Overview</h2>
+        <p>We worked with a sample of response vectors where each participant answered twenty items on a Likert-scale from one to five. Each method grouped people based on their answer patterns, allowing us to compare how different algorithms carve the data into clusters that might correspond to low, medium, and high levels of Machiavellian traits. The dataset used can be found <a target="_blank" href="https://openpsychometrics.org/_rawdata/">here</a>.</p>
+        <div class="summary-box">
+          <h3>On this site, you can find:</h3>
+          <ul>
+            <li>Plots that visualize clusters in a low-dimensional space.</li>
+            <li>Short written interpretations for each method used.</li>
+            <li>Basic validation metrics such as Silhouette scores and PCA.</li>
+          </ul>
+        </div>
+      </section>
+
+    <!-- K Means -->
+    <section id="kmeans" class="algorithm-section">
+      <div class="algorithm-card">
+        <div class="algorithm-header">
+          <h2>K-Means Clustering</h2>
+          <span class="algorithm-tag">Partition based</span>
+        </div>
+        <div class="algorithm-body">
+          <div class="text-block">
+            <p>
+              K Means partitions the data into a set number of clusters by assigning each participant to the nearest cluster center in feature space. In our analysis, we chose a value of <i>k</i> that balanced interpretability with inter-cluster compactness.
+            </p>
+            <ul>
+              <li>Replace this paragraph with a brief explanation of how you chose K</li>
+              <li>Describe the typical response profile in each cluster</li>
+              <li>Mention any clusters that look similar and how that compares to other methods</li>
+            </ul>
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Value</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Silhouette score</td>
+                  <td>TODO</td>
+                  <td>Higher values indicate more separated clusters</td>
+                </tr>
+                <tr>
+                  <td>Calinski Harabasz index</td>
+                  <td>TODO</td>
+                  <td>Higher values indicate more distinct clusters</td>
+                </tr>
+                <tr>
+                  <td>Davies Bouldin index</td>
+                  <td>TODO</td>
+                  <td>Lower values indicate better separation</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plot-block">
+            <figure>
+              <div class="plot-placeholder">
+                Insert your main K-Means cluster plot here
+              </div>
+              <figcaption>
+                Suggested plot PCA or t SNE projection colored by cluster label.
+              </figcaption>
+            </figure>
+            <figure>
+              <div class="plot-placeholder">
+                Optional second plot for K Means for example within cluster item means
+              </div>
+              <figcaption>
+                Suggested plot average item response profile for each cluster.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gaussian mixture model -->
+    <section id="gmm" class="algorithm-section">
+      <div class="algorithm-card">
+        <div class="algorithm-header">
+          <h2>Gaussian Mixture Model</h2>
+          <span class="algorithm-tag">Model based</span>
+        </div>
+        <div class="algorithm-body">
+          <div class="text-block">
+            <p>
+              A Gaussian mixture model treats clusters as overlapping probability distributions rather than hard partitions. Each participant receives a probability of belonging to each component, which can reveal more gradual changes between low and high trait levels.
+            </p>
+            <ul>
+              <li>Explain how you selected the number of components for the model</li>
+              <li>Report any information criteria you used such as BIC or AIC</li>
+              <li>Comment on where GMM agrees or disagrees with K Means</li>
+            </ul>
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Value</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>BIC</td>
+                  <td>TODO</td>
+                  <td>Lower values indicate a better tradeoff between fit and complexity</td>
+                </tr>
+                <tr>
+                  <td>AIC</td>
+                  <td>TODO</td>
+                  <td>Alternative information criterion for model selection</td>
+                </tr>
+                <tr>
+                  <td>Average max membership</td>
+                  <td>TODO</td>
+                  <td>How confident the model is in its assignments</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plot-block">
+            <figure>
+              <div class="plot-placeholder">
+                Insert GMM cluster visualization here
+              </div>
+              <figcaption>
+                Suggested plot projection colored by most likely component.
+              </figcaption>
+            </figure>
+            <figure>
+              <div class="plot-placeholder">
+                Optional membership heatmap or density plot
+              </div>
+              <figcaption>
+                Suggested plot matrix of membership probabilities for a sample of participants.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spectral clustering -->
+    <section id="spectral" class="algorithm-section">
+      <div class="algorithm-card">
+        <div class="algorithm-header">
+          <h2>Spectral Clustering</h2>
+          <span class="algorithm-tag">Graph based</span>
+        </div>
+        <div class="algorithm-body">
+          <div class="text-block">
+            <p>
+              Spectral clustering builds a similarity graph between participants and uses eigenvectors of the graph Laplacian to embed the data before forming clusters. This method can capture more complex structures that simple distance based partitions might miss.
+            </p>
+            <ul>
+              <li>Describe how you constructed the similarity matrix for example nearest neighbors or RBF</li>
+              <li>Compare the resulting clusters to those from K Means and GMM</li>
+              <li>Note any small groups or outliers that only appear with this method</li>
+            </ul>
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Value</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Silhouette score</td>
+                  <td>TODO</td>
+                  <td>Use the same metric to compare with K Means</td>
+                </tr>
+                <tr>
+                  <td>Number of clusters</td>
+                  <td>TODO</td>
+                  <td>State how many groups you used in the embedding</td>
+                </tr>
+                <tr>
+                  <td>Neighbor parameter</td>
+                  <td>TODO</td>
+                  <td>Record the main graph hyperparameter for future reference</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plot-block">
+            <figure>
+              <div class="plot-placeholder">
+                Insert spectral clustering projection here
+              </div>
+              <figcaption>
+                Suggested plot spectral embedding colored by cluster label.
+              </figcaption>
+            </figure>
+            <figure>
+              <div class="plot-placeholder">
+                Optional similarity graph or adjacency visualization
+              </div>
+              <figcaption>
+                Suggested plot degree distribution or simplified graph view.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hierarchical clustering -->
+    <section id="hierarchical" class="algorithm-section">
+      <div class="algorithm-card">
+        <div class="algorithm-header">
+          <h2>Hierarchical Clustering</h2>
+          <span class="algorithm-tag">Tree based</span>
+        </div>
+        <div class="algorithm-body">
+          <div class="text-block">
+            <p>
+              Hierarchical clustering builds a tree of merges that shows how clusters form at different distance thresholds. This offers a view of structure, known as a dendrogram, at many levels rather than a single partition of the data.
+            </p>
+            <ul>
+              <li>Explain whether you used agglomerative or divisive clustering and which linkage rule</li>
+              <li>Describe how you chose a cut level in the dendrogram to define clusters</li>
+              <li>Connect the branches in the tree to interpretable response patterns</li>
+            </ul>
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Choice</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Distance metric</td>
+                  <td>TODO</td>
+                  <td>For example Euclidean or Manhattan</td>
+                </tr>
+                <tr>
+                  <td>Linkage rule</td>
+                  <td>TODO</td>
+                  <td>For example Ward, complete, average</td>
+                </tr>
+                <tr>
+                  <td>Number of clusters at cut</td>
+                  <td>TODO</td>
+                  <td>How many leaves you kept for final comparison</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plot-block">
+            <figure>
+              <div class="plot-placeholder">
+                Insert dendrogram plot here
+              </div>
+              <figcaption>
+                Suggested plot dendrogram with the chosen cut level marked.
+              </figcaption>
+            </figure>
+            <figure>
+              <div class="plot-placeholder">
+                Optional cluster profile or heatmap
+              </div>
+              <figcaption>
+                Suggested plot item by cluster heatmap sorted by tree order.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        MACH-IV Clustering Project &copy; 2025. Created by Jeffrey Hoelzel Jr, Sean Golez, and Luke Bowen.
+      </p>
+    </footer>
     </main>
   </body>
 </html>

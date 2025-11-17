@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f5f5f7;
+  color: #1f2933;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(135deg, #1f2937, #3b82f6);
+  color: white;
+  padding: 2.75rem 1.5rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+header p {
+  max-width: 720px;
+  margin: 0.25rem auto 0;
+  font-size: 0.98rem;
+  opacity: 0.9;
+}
+
+nav {
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0.5rem 1rem;
+  gap: 0.75rem;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: #1f2933;
+  background-color: #e5e7eb;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+nav a:hover {
+  background-color: #3b82f6;
+  color: white;
+  transform: translateY(-1px);
+}
+
+main {
+  max-width: 1080px;
+  margin: 1.75rem auto 3rem;
+  padding: 0 1rem 2rem;
+}
+
+.intro-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem 1.5rem 1.25rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  margin-bottom: 2rem;
+}
+
+.intro-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.intro-grid p {
+  font-size: 0.96rem;
+}
+
+.summary-box {
+  background-color: #f3f4f6;
+  border-radius: 0.8rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+}
+
+.summary-box h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.summary-box ul {
+  list-style: disc;
+  padding-left: 1.1rem;
+}
+
+.algorithm-section {
+  margin-bottom: 2.25rem;
+}
+
+.algorithm-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.algorithm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.algorithm-header h2 {
+  font-size: 1.3rem;
+}
+
+.algorithm-tag {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background-color: #e5e7eb;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.algorithm-body {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1.25rem;
+}
+
+.text-block p {
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+
+.text-block ul {
+  list-style: disc;
+  padding-left: 1.15rem;
+  font-size: 0.9rem;
+}
+
+.plot-block {
+  display: grid;
+  gap: 0.75rem;
+}
+
+figure {
+  margin: 0;
+}
+
+.plot-placeholder {
+  border-radius: 0.75rem;
+  border: 1px dashed #d1d5db;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  background: repeating-linear-gradient(
+    45deg,
+    #f9fafb,
+    #f9fafb 10px,
+    #f3f4f6 10px,
+    #f3f4f6 20px
+  );
+  text-align: center;
+  padding: 0.75rem;
+}
+
+figcaption {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 0.5rem;
+}
+
+.metrics-table th,
+.metrics-table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+
+.metrics-table th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+  padding-bottom: 2rem;
+}
+
+footer p {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 880px) {
+  .intro-grid,
+  .algorithm-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  header h1 {
+    font-size: 1.9rem;
+  }
+
+  .algorithm-card {
+    padding: 1.2rem;
+  }
+
+  nav ul {
+    justify-content: flex-start;
+  }
+}
