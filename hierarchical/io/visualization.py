@@ -1,0 +1,104 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+import numpy as np
+from sklearn.decomposition import PCA
+from scipy.cluster.hierarchy import dendrogram, fcluster
+from .io_utils import save_fig
+from setup.config import QUESTION_COLS
+
+def plot_dendrograms(Z_single: np.ndarray, 
+                     Z_complete: np.ndarray, 
+                     Z_average: np.ndarray, 
+                     Z_ward: np.ndarray, 
+                     filename: str) -> None:
+    """Plots and saves the dendrograms for each linkage type."""
+    p_show = 20
+    fig, ax = plt.subplots(1, 4, figsize=(12, 6))
+
+    # single linkage
+    ct_single = 0.7 * Z_single[:, 2].max()
+    dendrogram(Z_single, 
+               truncate_mode="lastp",
+               p=min(p_show, Z_single.shape[0] + 1),
+               color_threshold=ct_single,
+               no_labels=True,
+               count_sort="ascending",
+               distance_sort="descending",
+               ax=ax[0])
+    ax[0].set_title("Single")
+
+    # complete linkage
+    ct_complete = 0.7 * Z_complete[:, 2].max()
+    dendrogram(Z_complete, 
+               truncate_mode="lastp",
+               p=min(p_show, Z_complete.shape[0] + 1),
+               color_threshold=ct_complete,
+               no_labels=True,
+               count_sort="ascending",
+               distance_sort="descending",
+               ax=ax[1])
+    ax[1].set_title("Complete")
+
+    # average linkage
+    ct_average = 0.7 * Z_average[:, 2].max()
+    dendrogram(Z_average, 
+               truncate_mode="lastp",
+               p=min(p_show, Z_average.shape[0] + 1),
+               color_threshold=ct_average,
+               no_labels=True,
+               count_sort="ascending",
+               distance_sort="descending",
+               ax=ax[2])
+    ax[2].set_title("Average")
+
+    # ward linkage
+    ct_ward = 0.7 * Z_ward[:, 2].max()
+    dendrogram(Z_ward, 
+               truncate_mode="lastp",
+               p=min(p_show, Z_ward.shape[0] + 1),
+               color_threshold=ct_ward,
+               no_labels=True,
+               count_sort="ascending",
+               distance_sort="descending",
+               ax=ax[3])
+    ax[3].set_title("Ward")
+
+    plt.tight_layout()
+    plt.xlabel("Merged Leaves")
+    plt.ylabel("Distance")
+    save_fig(fig, "dendrograms", f"{filename}_dendrograms.png")
+
+def plot_pca_clusters(X: pd.DataFrame, 
+                      Z: np.ndarray, 
+                      filename: str, 
+                      ks: tuple[int, ...] = (2, 3, 4)) -> None:
+    """Creates a plot of the principal component analysis using provided cluster sizes."""
+    pca = PCA(n_components=2)
+    X_pca = pca.fit_transform(X)
+
+    fig, ax = plt.subplots(1, len(ks), figsize=(5 * len(ks), 5))
+    for i, k in enumerate(ks):
+        labels = fcluster(Z, k, criterion="maxclust")
+        ax[i].scatter(X_pca[:, 0], X_pca[:, 1], c=labels, cmap="tab10", s=15)
+        ax[i].set_title(f"PCA, k={k}")
+        ax[i].set_xlabel("PC1")
+        ax[i].set_ylabel("PC2")
+        
+    plt.tight_layout()
+    save_fig(fig, "pca", f"{filename}_pca.png")
+
+def plot_mode_cluster_heatmaps(df_labeled: pd.DataFrame, filename: str) -> pd.DataFrame:
+    """Creates a heatmap of the modes by cluster per question response and returns a DataFrame of the modes."""
+    modes = df_labeled.groupby("Cluster")[QUESTION_COLS].agg(
+        lambda x: x.mode().iloc[0]
+    )
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.heatmap(modes, annot=True, cmap="coolwarm", ax=ax)
+    ax.set_title("Mode MACH-IV Question Responses per Cluster")
+    ax.set_xlabel("Questions")
+    ax.set_ylabel("Clusters")
+
+    save_fig(fig, "heatmaps", f"{filename}_heatmap.png")
+    return modes
