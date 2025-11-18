@@ -86,7 +86,8 @@ def save_fig(fig: Figure, *parts: tuple[Any, ...], dpi: int = 300) -> Path:
     >>> save_fig(fig1, "dendrograms", "ward.png")
     path/to/saved/dendrograms/ward.png
     """
-    out_dir = ensure_dir_exists("plots")
-    out_path = out_dir.joinpath(*parts)
+    *folder_parts, filename = parts
+    out_dir = ensure_dir_exists(*folder_parts)
+    out_path = out_dir / filename
     fig.savefig(out_path, dpi=dpi, bbox_inches="tight")
     return out_path

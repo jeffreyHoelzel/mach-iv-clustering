@@ -1,6 +1,6 @@
 import pandas as pd
 from .config import DATA_PATH, QUESTION_COLS, RANDOM_STATE, SAMPLE_N
-from io.io_utils import save_df
+from pipelineio.io_utils import save_df
 
 def load_raw() -> pd.DataFrame:
     """Loads the complete CSV from disk into a DataFrame and returns for machine learning use."""

@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
 from scipy.cluster.hierarchy import linkage
-from io.io_utils import ensure_dir_exists
+from pipelineio.io_utils import ensure_dir_exists
 import joblib
 
 def compute_distances(X: pd.DataFrame, save: bool = False) -> tuple[np.ndarray, np.ndarray]:

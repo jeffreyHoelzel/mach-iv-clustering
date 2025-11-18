@@ -67,7 +67,7 @@ def plot_dendrograms(Z_single: np.ndarray,
     plt.tight_layout()
     plt.xlabel("Merged Leaves")
     plt.ylabel("Distance")
-    save_fig(fig, "dendrograms", f"{filename}_dendrograms.png")
+    save_fig(fig, "plots", "dendrograms", f"{filename}.png")
 
 def plot_pca_clusters(X: pd.DataFrame, 
                       Z: np.ndarray, 
@@ -86,7 +86,7 @@ def plot_pca_clusters(X: pd.DataFrame,
         ax[i].set_ylabel("PC2")
         
     plt.tight_layout()
-    save_fig(fig, "pca", f"{filename}_pca.png")
+    save_fig(fig, "plots", "pca", f"{filename}.png")
 
 def plot_mode_cluster_heatmaps(df_labeled: pd.DataFrame, filename: str) -> pd.DataFrame:
     """Creates a heatmap of the modes by cluster per question response and returns a DataFrame of the modes."""
@@ -100,5 +100,5 @@ def plot_mode_cluster_heatmaps(df_labeled: pd.DataFrame, filename: str) -> pd.Da
     ax.set_xlabel("Questions")
     ax.set_ylabel("Clusters")
 
-    save_fig(fig, "heatmaps", f"{filename}_heatmap.png")
+    save_fig(fig, "plots", "heatmaps", f"{filename}.png")
     return modes

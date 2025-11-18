@@ -2,14 +2,14 @@ import numpy as np
 import pandas as pd
 from scipy.cluster.hierarchy import fcluster
 from sklearn.metrics import silhouette_score
-from io.io_utils import save_df
-from typing import Any, LiteralString
+from pipelineio.io_utils import save_df
+from typing import Any, Literal
 
 def label_and_score(X: pd.DataFrame, 
                     Z: np.ndarray, 
                     ks: tuple[int, ...] = (2, 3, 4), 
                     save: bool = True, 
-                    linkage: LiteralString = "single" | "complete" | "average" | "ward") -> tuple[dict[int, dict[Any, float]], pd.DataFrame]:
+                    linkage: Literal["single", "complete", "average", "ward"] = "") -> tuple[dict[int, dict[Any, float]], pd.DataFrame]:
     """
     Labels each data point and calculates a Silhouette score per k-cluster.
 
