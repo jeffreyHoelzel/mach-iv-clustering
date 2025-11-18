@@ -24,5 +24,6 @@ def prep_sample(save: bool = False):
     X = df[QUESTION_COLS].copy()
     X_clean = X.dropna().astype(int)
     X_sample = X_clean.sample(n=SAMPLE_N, random_state=RANDOM_STATE)
-    save_df(X_sample, "Xs_sample.csv")
+    if save:
+        save_df(X_sample, "Xs_sample.csv")
     return X_sample
