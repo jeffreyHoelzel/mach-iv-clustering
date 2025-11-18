@@ -12,7 +12,7 @@ def ensure_dir_exists(*parts: tuple[Any, ...]) -> Path:
     Parameters
     ----------
         parts : tuple[Any, ...]
-            A tuple of the directory names that may or may not exist.
+            A tuple of the directory/file names that may or may not exist.
 
     Returns
     -------
@@ -37,7 +37,7 @@ def save_df(df: pd.DataFrame, *parts: tuple[Any, ...], fmt: str = "csv") -> Path
         df : DataFrame
             Input DataFrame to save to a file.
         parts : tuple[Any, ...]
-            A tuple of the directory names that may or may not exist.
+            A tuple of the directory/file names that may or may not exist.
         fmt : str
             The specified file format to save the DataFrame as. Default is `"csv"`, but `"parquet"`
             is also an option.
@@ -46,6 +46,14 @@ def save_df(df: pd.DataFrame, *parts: tuple[Any, ...], fmt: str = "csv") -> Path
     -------
         Path
             The output path to the new file.
+
+    Usage
+    -----
+    >>> save_df(X, "X_input.csv")
+    path/to/saved/X_input.csv
+
+    >>> save_df(X, "X_input.parquet")
+    path/to/saved/X_input.parquet
     """
     out_dir = ensure_dir_exists("data")
     out_path = out_dir.joinpath(*parts)
@@ -64,7 +72,7 @@ def save_fig(fig: Figure, *parts: tuple[Any, ...], dpi: int = 300) -> Path:
         fig : Figure
             Input figure to save to disk.
         parts : tuple[Any, ...]
-            A tuple of the directory names that may or may not exist.
+            A tuple of the directory/file names that may or may not exist.
         dpi : int
             The figure's resolution in dots per inch. Default is `300`.
 
@@ -72,6 +80,11 @@ def save_fig(fig: Figure, *parts: tuple[Any, ...], dpi: int = 300) -> Path:
     -------
         Path
             The output path to the new image.
+
+    Usage
+    -----
+    >>> save_fig(fig1, "dendrograms", "ward.png")
+    path/to/saved/dendrograms/ward.png
     """
     out_dir = ensure_dir_exists("plots")
     out_path = out_dir.joinpath(*parts)
