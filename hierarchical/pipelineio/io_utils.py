@@ -1,9 +1,10 @@
 from pathlib import Path
 import pandas as pd
 from matplotlib.figure import Figure
+from datetime import datetime
 from typing import Any
 
-ARTIFACTS_DIR = Path("artifacts")
+ARTIFACTS_DIR = Path(f"artifacts_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
 
 def ensure_dir_exists(*parts: tuple[Any, ...]) -> Path:
     """
