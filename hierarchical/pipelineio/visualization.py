@@ -65,8 +65,6 @@ def plot_dendrograms(Z_single: np.ndarray,
     ax[3].set_title("Ward")
 
     plt.tight_layout()
-    plt.xlabel("Merged Leaves")
-    plt.ylabel("Distance")
     save_fig(fig, "plots", "dendrograms", f"{filename}.png")
 
 def plot_pca_clusters(X: pd.DataFrame, 
