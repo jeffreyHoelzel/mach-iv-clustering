@@ -10,7 +10,7 @@ def main() -> None:
     Uses k-NN + RBF spectral embedding and KMeans in embedding space.
     """
     # Load (and optionally sample) the data
-    X = prep_sample(save=True, use_all=False)
+    X = prep_sample(save=True, use_all=True)
 
     results, summary = label_and_score(
         X,
