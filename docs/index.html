@@ -242,12 +242,15 @@
         <div class="algorithm-body">
           <div class="text-block">
             <p>
-              Hierarchical clustering builds a tree of merges that shows how clusters form at different distance thresholds. This offers a view of structure, known as a dendrogram, at many levels rather than a single partition of the data.
+              Hierarchical clustering builds a tree of merges that shows how clusters form at different distance thresholds. This offers a view of structure, known as a <strong>dendrogram</strong>, at many levels rather than a single partition of the data.
+            </p>
+            <p>
+              In our final analysis, we ran Ward linkage hierarchical clustering on <strong>all 73,489 particpants</strong> using NAU's <strong>Monsoon HPC</strong> to handle the computational load. We then sampled <strong>5,000 random participants</strong> to visualize the dendrograms for each linkage rule.
             </p>
             <ul>
-              <li>Explain whether you used agglomerative or divisive clustering and which linkage rule</li>
-              <li>Describe how you chose a cut level in the dendrogram to define clusters</li>
-              <li>Connect the branches in the tree to interpretable response patterns</li>
+              <li>Our final hierarchical clustering algorithm uses <strong>agglomerative clustering</strong> using the <strong>Ward</strong> linkage rule.</li>
+              <li>To choose a cut level, we plotted the dendrogram <i>(as seen on the right)</i> and determined that <strong>2, 3, & 4</strong> clusters were likely to exist.</li>
+              <li>We determined <strong>clusters</strong> was the sweet spot for hierarchical clustering based on the <strong>PCA plot</strong> <i>(bottom right)</i>, which aligns with most personality-based studies suggesting that a <strong>spectrum</strong> exists among personality traits.</li>
             </ul>
             <table class="metrics-table">
               <thead>
@@ -260,18 +263,18 @@
               <tbody>
                 <tr>
                   <td>Distance metric</td>
-                  <td>TODO</td>
-                  <td>For example Euclidean or Manhattan</td>
+                  <td>Euclidean</td>
+                  <td>Ward linkage tries to minimize the increase in total inter-cluster variation by minimizing the sum of squared Euclidean distances.</td>
                 </tr>
                 <tr>
                   <td>Linkage rule</td>
-                  <td>TODO</td>
-                  <td>For example Ward, complete, average</td>
+                  <td>Ward</td>
+                  <td>Ward linkage offers the most interpretable hierarchy for psychological traits and thus, became our linkage rule of choice.</td>
                 </tr>
                 <tr>
                   <td>Number of clusters at cut</td>
-                  <td>TODO</td>
-                  <td>How many leaves you kept for final comparison</td>
+                  <td>3</td>
+                  <td>We decided 3 clusters made the most sense to interpret this data.</td>
                 </tr>
               </tbody>
             </table>
@@ -279,18 +282,18 @@
           <div class="plot-block">
             <figure>
               <div class="plot-placeholder">
-                Insert dendrogram plot here
+                <img src="images/default_dendrograms.png" alt="Four dendrograms showing hierarchical clustering using the four different linkage rules for n=5000 random participants">
               </div>
               <figcaption>
-                Suggested plot dendrogram with the chosen cut level marked.
+                Four dendrograms showing hierarchical clustering using the four different linkage rules for n=5000 random participants.
               </figcaption>
             </figure>
             <figure>
-              <div class="plot-placeholder">
-                Optional cluster profile or heatmap
+              <div class="plot-placeholder plot-wide">
+                <img src="images/ward_linkage_pca.png" alt="PCA plot showing hierarchical clustering results using Ward linkage on all 73,489 participants">
               </div>
               <figcaption>
-                Suggested plot item by cluster heatmap sorted by tree order.
+                PCA plot for 2, 3, & 4 clusters showing hierarchical clustering results using Ward linkage on all 73,489 participants.
               </figcaption>
             </figure>
           </div>

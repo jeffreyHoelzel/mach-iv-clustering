@@ -164,6 +164,7 @@ main {
 .plot-block {
   display: grid;
   gap: 0.75rem;
+  justify-content: center;
 }
 
 figure {
@@ -172,22 +173,28 @@ figure {
 
 .plot-placeholder {
   border-radius: 0.75rem;
-  border: 1px dashed #d1d5db;
-  min-height: 160px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
-  color: #6b7280;
-  background: repeating-linear-gradient(
-    45deg,
-    #f9fafb,
-    #f9fafb 10px,
-    #f3f4f6 10px,
-    #f3f4f6 20px
-  );
-  text-align: center;
-  padding: 0.75rem;
+}
+
+.plot-placeholder img {
+  width: min(100%, 900px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.plot-wide .plot-placeholder {
+  padding: 2rem;
+  min-height: 650px;
+}
+
+.plot-wide .plot-placeholder img {
+  width: 100%;
 }
 
 figcaption {
@@ -244,5 +251,11 @@ footer p {
 
   nav ul {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 1024px) {
+  .plot-wide .plot-placeholder {
+    max-width: 100%;
   }
 }
