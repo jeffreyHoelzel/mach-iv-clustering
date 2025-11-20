@@ -59,7 +59,7 @@ def save_df(df: pd.DataFrame, *parts: tuple[Any, ...], fmt: str = "csv") -> Path
     out_dir = ensure_dir_exists("data")
     out_path = out_dir.joinpath(*parts)
     if fmt == "csv":
-        df.to_csv(out_path, index=True)
+        df.to_csv(out_path, index=False)
     elif fmt == "parquet":
         df.to_parquet(out_path, index=False)
     return out_path
