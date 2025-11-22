@@ -1,7 +1,6 @@
 from setup.preprocess import prep_sample
 from clustering.cluster import label_and_score
-from pipelineio.visualization import plot_mode_cluster_heatmaps
-from pipelineio.visualization import plot_spectral_embedding
+from pipelineio.visualization import plot_mode_cluster_heatmaps, plot_spectral_embedding
 
 
 def main() -> None:
@@ -21,16 +20,17 @@ def main() -> None:
     )
     print(summary)
 
-    k_best = 3
-    labels_best = results[k_best]["labels"]
-    embedding = results["embedding"]
+    for k in (2, 3, 4):
+        k_best = k
+        labels_best = results[k_best]["labels"]
+        embedding = results["embedding"]
 
-    plot_spectral_embedding(embedding[:, :2], labels_best)
-    
-    df_labeled = X.copy()
-    df_labeled["Cluster"] = labels_best
+        plot_spectral_embedding(embedding[:, :2], labels_best, f"spectral_embedding_k_{k}")
+        
+        df_labeled = X.copy()
+        df_labeled["Cluster"] = labels_best
 
-    plot_mode_cluster_heatmaps(df_labeled, "spectral_response_heatmap")
+        plot_mode_cluster_heatmaps(df_labeled, f"spectral_response_heatmap_k_{k}")
 
 
 if __name__ == "__main__":
