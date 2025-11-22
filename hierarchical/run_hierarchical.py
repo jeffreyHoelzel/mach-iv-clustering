@@ -11,14 +11,16 @@ def main() -> None:
     results, summary = label_and_score(X, Z_ward, save=True, linkage="ward")
     print(summary)
 
-    k_best = 3
-    labels_best = results[k_best]["labels"]
+    plot_pca_clusters(X, Z_ward, f"ward_linkage_pca_k")
 
-    df_labeled = X.copy()
-    df_labeled["Cluster"] = labels_best
+    for k in (2, 3, 4):
+        k_best = k
+        labels_best = results[k_best]["labels"]
 
-    plot_pca_clusters(X, Z_ward, "ward_linkage_pca")
-    cluster_modes = plot_mode_cluster_heatmaps(df_labeled, "ward_linkage_response_heatmap")
+        df_labeled = X.copy()
+        df_labeled["Cluster"] = labels_best
+
+        cluster_modes = plot_mode_cluster_heatmaps(df_labeled, f"ward_linkage_response_heatmap_k_{k}")
 
 if __name__ == "__main__":
     main()

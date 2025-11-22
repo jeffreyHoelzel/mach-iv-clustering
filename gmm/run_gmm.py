@@ -8,14 +8,16 @@ def main() -> None:
     results, summary = label_and_score(X, save=True)
     print(summary)
 
-    k_best = 2
-    labels_best = results[k_best]["labels"]
-
-    df_labeled = X.copy()
-    df_labeled["Cluster"] = labels_best
-
     plot_pca_clusters(X, "gmm_pca")
-    cluster_modes = plot_mode_cluster_heatmaps(df_labeled, "gmm_response_heatmap")
+
+    for k in (2, 3, 4):
+        k_best = k
+        labels_best = results[k_best]["labels"]
+
+        df_labeled = X.copy()
+        df_labeled["Cluster"] = labels_best
+
+        cluster_modes = plot_mode_cluster_heatmaps(df_labeled, f"gmm_response_heatmap_k_{k}")
 
 if __name__ == "__main__":
     main()

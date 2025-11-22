@@ -16,5 +16,5 @@ source $CONDA_PREFIX/etc/profile.d/conda.sh
 conda activate myenv
 conda install -y matplotlib pandas scipy scikit-learn seaborn
 
-cd /scratch/scg283/mach-iv-clustering/kmeans
-srun python -u run_kmeans.py
+cd /scratch/scg283/mach-iv-clustering/gmm
+srun python -u run_gmm.py
