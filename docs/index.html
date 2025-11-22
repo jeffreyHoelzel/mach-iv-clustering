@@ -17,6 +17,7 @@
         <li><a href="#gmm">Gaussian Mixture Model</a></li>
         <li><a href="#spectral">Spectral Clustering</a></li>
         <li><a href="#hierarchical">Hierarchical Clustering</a></li>
+        <li><a href="#future-work">Future Work</a></li>
       </ul>
     </nav>
 
@@ -248,9 +249,10 @@
               In our final analysis, we ran Ward linkage hierarchical clustering on <strong>all 73,489 particpants</strong> using NAU's <strong>Monsoon HPC</strong> to handle the computational load. We then sampled <strong>5,000 random participants</strong> to visualize the dendrograms for each linkage rule.
             </p>
             <ul>
-              <li>Our final hierarchical clustering algorithm uses <strong>agglomerative clustering</strong> using the <strong>Ward</strong> linkage rule.</li>
-              <li>To choose a cut level, we plotted the dendrogram <i>(as seen on the right)</i> and determined that <strong>2, 3, & 4</strong> clusters were likely to exist.</li>
-              <li>We determined <strong>3 clusters</strong> was the sweet spot for hierarchical clustering based on the <strong>PCA plot</strong> <i>(bottom right)</i>, which aligns with most personality-based studies suggesting that a <strong>spectrum</strong> exists among personality traits.</li>
+              <li>Our final hierarchical clustering algorithm uses <strong>agglomerative clustering</strong> with the <strong>Ward</strong> linkage rule.</li>
+              <li>To choose a cut level, we plotted the dendrogram <i>(as seen on the right)</i> and determined that <strong>2, 3, & 4</strong> clusters were good cluster sizes to try.</li>
+              <li>We determined <strong>3 clusters</strong> was the sweet spot for hierarchical clustering based on the <strong>PCA plot</strong> <i>(bottom right)</i>, which aligns with most personality-based studies suggesting that a <strong>spectrum</strong> exists among general personality traits.</li>
+              <li>Although, each of the three Silhouette scores are <i>fairly low</i>, suggesting there are not clear clusters among our dataset, we expected this since the data is related to personality-based data which is often <strong>more of a spectrum</strong> rather than clear-cut categories.</li>
             </ul>
             <table class="metrics-table">
               <thead>
@@ -282,7 +284,7 @@
           <div class="plot-block">
             <figure>
               <div class="plot-placeholder">
-                <img src="images/default_dendrograms.png" alt="Four dendrograms showing hierarchical clustering using the four different linkage rules for n=5000 random participants">
+                <img src="images/hierarchical/default_dendrograms.png" alt="Four dendrograms showing hierarchical clustering using the four different linkage rules for n=5000 random participants">
               </div>
               <figcaption>
                 Four dendrograms showing hierarchical clustering using the four different linkage rules for n=5000 random participants.
@@ -290,16 +292,63 @@
             </figure>
             <figure>
               <div class="plot-placeholder plot-wide">
-                <img src="images/ward_linkage_pca.png" alt="PCA plot showing hierarchical clustering results using Ward linkage on all 73,489 participants">
+                <img src="images/hierarchical/ward_linkage_pca.png" alt="PCA plot showing hierarchical clustering results using Ward linkage on all 73,489 participants">
               </div>
               <figcaption>
-                PCA plot for 2, 3, & 4 clusters showing hierarchical clustering results using Ward linkage on all 73,489 participants.
+                PCA plot for 2, 3, & 4 clusters showing hierarchical clustering results using Ward linkage on all 73,489 participants. The Silhouette scores for 2, 3, and 4 clusters are 0.174, 0.108, and 0.049 respectively.
               </figcaption>
             </figure>
           </div>
         </div>
+        <p>
+          <br>Below are three radar plots representing the <strong>Ten Item Personality Inventory (TIPI) personality responses</strong> for each of the three clusters identified using hierarchical clustering with Ward linkage. Each plot illustrates the <strong>distinct personality response characteristics of each cluster</strong>, providing insights into the varying levels of Machiavellian traits among participants.<br><br>
+        </p>
+        <p>
+          An important item to consider is the line between low and high Machiavellianism is not very thin according to our research. It it clear that a more in-depth analysis would be required to full understand the nuances of Machiavellian traits across individuals. However, these plots provide a foundational understanding of how different personality traits cluster together in relation to Machiavellianism.<br><br>
+        </p>
+        <div class="plot-block-horizontal">
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/hierarchical/Cluster_0.png" alt="Radar plot showing average item responses for cluster 0 using hierarchical clustering with Ward linkage">
+            </div>
+            <figcaption>
+              Cluster 0 represents <strong>low-Machiavellian</strong> individuals who score high in conscientiousness and emotional stability while remaining warm, calm, and cooperative. Their profile reflects a trusting and disciplined personality with little inclination toward manipulation. This group tends to value honesty, structure, and positive social relationships.
+          </figure>
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/hierarchical/Cluster_1.png" alt="Radar plot showing average item responses for cluster 1 using hierarchical clustering with Ward linkage">
+            </div>
+            <figcaption>
+              Cluster 1 shows a moderate, balanced personality profile with no extreme traits in any direction. These individuals fall in the <strong>middle of the Machiavellian</strong> spectrum and demonstrate flexible, context-dependent behavior. They are neither strongly manipulative nor strongly moralistic.
+          </figure>
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/hierarchical/Cluster_2.png" alt="Radar plot showing average item responses for cluster 2 using hierarchical clustering with Ward linkage">
+            </div>
+            <figcaption>
+              Cluster 2 reflects <strong>high-Machiavellian</strong> tendencies characterized by low warmth, high criticalness, strong emotional control, and strategic thinking. These individuals display traits associated with competitiveness, manipulation, and a pragmatic worldview. Their combination of low agreeableness and high conscientiousness aligns with classic Mach personality patterns.
+          </figure>
+        </div>
       </div>
     </section>
+
+    <!-- Future work -->
+     <section id="future-work" class="algorithm-section">
+      <div class="algorithm-card">
+        <div class="algorithm-header">
+          <h2>Future Work</h2>
+        </div>
+        <div class="algorithm-body-text-only">
+          <div class="text-block">
+            We recognize several avenues for future exploration to enhance our understanding of the MACH-IV personality data. Not to mention, the inherent flaws in our current implementation that could be improved upon, namely the use of clustering algorithms on personality-based data. Below are a few ideas for future work:
+            <ol>
+              <li><strong>Train More Expressive Models</strong> - Our current clustering methods rely on distance-based or linear separations. A future direction could be to train <strong>nonlinear models</strong> like neural networks, variational autoencoders, or deep mixture models that may be able to capture more complex and subtle psychological patterns that clustering algorithms simply cannot.</li>
+              <li><strong>Use Embeddings Instead of Raw Likert Vectors</strong> - We could represent participants using <strong>learned representations</strong> (possibly from an autoencoder). This would allow for models to learn richer relationships between items, reduce noise, and improve cluster separation.</li>
+              <li><strong>Use Supervised Learning to Build a Predictive Model</strong> - The inherent flaw with unsupervided machine learning is you must make assumptions about the data beforehand and also rely solely on whatever algorithm chosen to actually find patterns. A more robust approach could be to collect <strong>labeled data</strong> where participants are pre-categorized into specific levels of Machiavellianism and then train a supervised model to predict the labels directly.</li>
+            </ol>
+          </div>
+      </div>
+     </section>
 
     <footer>
       <p>
