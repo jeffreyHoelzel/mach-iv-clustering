@@ -5,7 +5,7 @@ from pipelineio.visualization import plot_dendrograms, plot_pca_clusters, plot_m
 
 def main() -> None:
     """Main script to run pipeline. Using Ward linkage as best linkage as seen in Jupyter Notebook testing."""
-    X = prep_sample(save=True, use_all=False)
+    X = prep_sample(save=True, use_all=True)
     Z_single, Z_complete, Z_average, Z_ward = compute_default_linkages(X)
     plot_dendrograms(Z_single, Z_complete, Z_average, Z_ward, "default_dendrograms")
     results, summary = label_and_score(X, Z_ward, save=True, linkage="ward")

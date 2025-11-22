@@ -58,7 +58,7 @@ def radar_chart(attributes, scores, title="Radar Chart"):
     angles += angles[:1]
 
     # Plot setup
-    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
+    fig, ax = plt.subplots(figsize=(12, 12), subplot_kw=dict(polar=True))
 
     # Draw outline
     ax.plot(angles, values, linewidth=2)

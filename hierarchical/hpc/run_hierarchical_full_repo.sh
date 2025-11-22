@@ -4,7 +4,7 @@
 #SBATCH --gpus=1
 #SBATCH --cpus-per-gpu=8
 #SBATCH --mem-per-gpu=48G
-#SBATCH --time=00:10:00
+#SBATCH --time=00:30:00
 #SBATCH --output=/scratch/%u/h_clust/%x_%j.out
 #SBATCH --error=/scratch/%u/h_clust/%x_%j.err
 
