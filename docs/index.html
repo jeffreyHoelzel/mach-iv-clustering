@@ -13,6 +13,7 @@
 
     <nav>
       <ul>
+        <li><a href="#dataset">Dataset</a></li>
         <li><a href="#kmeans">K-Means</a></li>
         <li><a href="#gmm">Gaussian Mixture Model</a></li>
         <li><a href="#spectral">Spectral Clustering</a></li>
@@ -24,7 +25,7 @@
     <main>
       <section class="intro-card">
         <h2>Project Overview</h2>
-        <p>We worked with a sample of response vectors where each participant answered twenty items on a Likert-scale from one to five. Each method grouped people based on their answer patterns, allowing us to compare how different algorithms carve the data into clusters that might correspond to low, medium, and high levels of Machiavellian traits. The dataset used can be found <a target="_blank" href="https://openpsychometrics.org/_rawdata/">here</a>.</p>
+        <p>We worked with a sample of Machiavellian response vectors where each participant answered twenty items on a Likert-scale from one to five. Each method grouped people based on their answer patterns, allowing us to compare how different algorithms carve the data into clusters that might correspond to low, medium, and high levels of Machiavellian traits. The dataset used can be found <a target="_blank" href="https://openpsychometrics.org/_rawdata/">here</a>.</p>
         <div class="summary-box">
           <h3>On this site, you can find:</h3>
           <ul>
@@ -34,6 +35,26 @@
           </ul>
         </div>
       </section>
+
+    <!-- Dataset -->
+     <section id="dataset" class="algorithm-section">
+      <div class="algorithm-card">
+        <div class="algorithm-header">
+          <h2>Dataset</h2>
+        </div>
+        <div class="algorithm-body-text-only">
+          <div class="text-block">
+            <p>
+              The MACH-IV dataset consists of responses from <strong>73,489 participants</strong> who completed the MACH-IV personality inventory. Each participant answered <strong>20 items on a Likert scale</strong> ranging from 1 (strongly disagree) to 5 (strongly agree). The dataset captures various dimensions of Machiavellian traits, which are often associated with manipulativeness, cynicism, and a pragmatic approach to interpersonal relationships.
+            </p>
+            <p>
+              Prior to applying clustering algorithms, we performed <strong>standard preprocessing</strong> steps including handling missing values and conducting exploratory data analysis to understand the distribution of responses across items. This ensured that our clustering results would be based on clean and meaningful data.
+            </p>
+            <p>
+              There is also much more information provided in this datasets beyond the 20 questions we focused on for this project. When downloading the dataset, there will also be a <strong>codebook provided</strong> that describes all the additional demographic and psychometric variables collected from participants. You can find the raw dataset <a target="_blank" href="https://openpsychometrics.org/_rawdata/">here</a> under the description <i>"Answers to the Machivallianism Test, a version of the MACH-IV from Christie and Geis (1970)."</i>
+            </p>
+          </div>
+     </section>
 
     <!-- K Means -->
     <section id="kmeans" class="algorithm-section">
