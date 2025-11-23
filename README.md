@@ -49,6 +49,10 @@ pip install -r requirements.txt  # installs all dependencies in the requirements
 ```bash
 python <algorithm>/run_<algorithm>.py
 ```
+8. To run cluster analysis (a time-stamped artifacts folder will be generated in your current directory containing the program output):
+```bash
+ python cluster_analysis/analyze_clusters.py -i <algorithm>\<artifacts_folder>\data\<cluster_labels>.csv
+```
 
 ### HPC Usage
 1. Ensure you have access to an HPC. For this guide, we are assuming you are an NAU student with access to the Monsoon HPC. We are also assuming you have some basic understanding of the Linux command line and Monsoon.
