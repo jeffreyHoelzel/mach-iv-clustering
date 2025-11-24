@@ -198,12 +198,19 @@
         <div class="algorithm-body">
           <div class="text-block">
             <p>
-              Spectral clustering builds a similarity graph between participants and uses eigenvectors of the graph Laplacian to embed the data before forming clusters. This method can capture more complex structures that simple distance based partitions might miss.
+              Spectral clustering builds a <strong>similarity graph</strong> between participants and uses <strong>eigenvectors</strong> of the graph Laplacian to embed the data before forming clusters. This method can capture <strong>more complex structures</strong> that simple distance based partitions might miss.
             </p>
             <ul>
-              <li>Describe how you constructed the similarity matrix for example nearest neighbors or RBF</li>
-              <li>Compare the resulting clusters to those from K Means and GMM</li>
-              <li>Note any small groups or outliers that only appear with this method</li>
+              <li>We constructed a <strong>similarity matrix</strong> by building a k-nearest-neighbor graph
+              using Euclidean distances with <i>k=5</i></li>. We then symmetrized the graph using an <strong>RBF kernel</strong>.
+              <li>The results from spectral clustering differ from algorithms like kmeans or GMM in the sense that
+                spectral clustering can capture <strong>non-convex cluster shapes</strong> and is sensitive to the choice of graph construction method.
+                In practice, the clusters identified by spectral clustering showed boundaries that were <strong>smoother</strong> and <strong>better aligned</strong>
+                with the underlying data manifold.
+              </li>
+              <li>Due to the reliance on the graph Laplacian, spectral clustering can be much more sensitive to local-connectivity than KMeans.
+                This tends to force points into similarly sized partitions, which we saw when running spectral clustering with more than 2 clusters.
+              </li>
             </ul>
             <table class="metrics-table">
               <thead>
@@ -216,18 +223,18 @@
               <tbody>
                 <tr>
                   <td>Silhouette score</td>
-                  <td>TODO</td>
-                  <td>Use the same metric to compare with K Means</td>
+                  <td>0.XX</td>
+                  <td>Spectral and KMeans both used the same metric of silhouette score for direct comparison.</td>
                 </tr>
                 <tr>
                   <td>Number of clusters</td>
-                  <td>TODO</td>
-                  <td>State how many groups you used in the embedding</td>
+                  <td>K</td>
+                  <td>We evaluated values of K ranging from 2 to 4.</td>
                 </tr>
                 <tr>
                   <td>Neighbor parameter</td>
-                  <td>TODO</td>
-                  <td>Record the main graph hyperparameter for future reference</td>
+                  <td>k</td>
+                  <td>We ran this simulation using k=15 for the k-nearest-neighbors hyperparameter.</td>
                 </tr>
               </tbody>
             </table>
@@ -235,18 +242,40 @@
           <div class="plot-block">
             <figure>
               <div class="plot-placeholder">
-                Insert spectral clustering projection here
+                <img src="images/spectral/spectral_embedding_k_2.png" alt="Spectral embedding plot showing clusters identified by spectral clustering">
               </div>
               <figcaption>
-                Suggested plot spectral embedding colored by cluster label.
+                Spectral Embedding plot ran with 2 clusters on Monsoon.
               </figcaption>
             </figure>
             <figure>
               <div class="plot-placeholder">
-                Optional similarity graph or adjacency visualization
+                <img src="images/spectral/spectral_embedding_k_3.png" alt="Spectral embedding plot showing clusters identified by spectral clustering">
               </div>
               <figcaption>
-                Suggested plot degree distribution or simplified graph view.
+                Spectral Embedding plot ran with 3 clusters on Monsoon. Note the inability to smoothly form the third cluster due to the local connectivity constraints of spectral clustering.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <p>
+          <br>Below are two radar plots showing the <strong>Ten Item Personality Inventory (TIPI) personality responses</strong> for both clusters identified using spectral clustering. Each plot gives further insight into the clusters discovered, and shows the distinct levels of <strong>Machiavellianism</strong> within each group.<br><br>
+        </p>
+          <div class="plot-block-horizontal">
+            <figure>
+              <div class="plot-placeholder">
+                <img src="images/spectral/Cluster_0.png" alt="Degree distribution plot of the similarity graph used in spectral clustering">
+              </div>
+              <figcaption>
+                Cluster 0 represents low-Machiavellian individuals. These individuals scored higher in traits like emotionally stable, dependable, and disciplined, while scoring lower in traits like careless, uncreative, or easily upset.
+              </figcaption>
+            </figure>
+            <figure>
+              <div class="plot-placeholder">
+                <img src="images/spectral/Cluster_1.png" alt="Degree distribution plot of the similarity graph used in spectral clustering">
+              </div>
+              <figcaption>
+                Cluster 1 represents high-Machiavellian individuals. These individuals scored higher in traits like extraverted, anxious, and disorganized, while scoring lower in traits like reserved, calm, and sympathetic.
               </figcaption>
             </figure>
           </div>
