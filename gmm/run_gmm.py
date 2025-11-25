@@ -10,7 +10,7 @@ def main() -> None:
 
     plot_pca_clusters(X, "gmm_pca")
 
-    for k in (2, 3, 4):
+    for k in (2, 4, 6):
         k_best = k
         labels_best = results[k_best]["labels"]
 

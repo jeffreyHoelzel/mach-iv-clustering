@@ -13,7 +13,7 @@ def main() -> None:
 
     # read dfs
     X = pd.read_csv(args.cluster_labels, index_col=0)
-    plot_mode_cluster_heatmaps(X, f"kmeans_response_heatmap")
+    plot_mode_cluster_heatmaps(X, f"response_heatmap")
     
     data = pd.read_csv(DATA_PATH)
     data = data.loc[X.index]
