@@ -4,13 +4,13 @@ from pipelineio.visualization import plot_pca_clusters, plot_mode_cluster_heatma
 
 def main() -> None:
     """Main script to run pipeline. Using k=2 as best seen in Jupyter Notebook testing."""
-    X = prep_sample(save=True, use_all=True)
+    X = prep_sample(save=True, use_all=False)
     results, summary = label_and_score(X, save=True)
     print(summary)
 
     plot_pca_clusters(X, "gmm_pca")
 
-    for k in (2, 3, 4):
+    for k in (2, 4, 6):
         k_best = k
         labels_best = results[k_best]["labels"]
 

@@ -6,7 +6,7 @@ from pipelineio.io_utils import save_df
 from typing import Any, Literal
 
 def label_and_score(X: pd.DataFrame, 
-                    ks: tuple[int, ...] = (2, 3, 4), 
+                    ks: tuple[int, ...] = (2, 4, 6), 
                     save: bool = True) -> tuple[dict[int, dict[Any, float]], pd.DataFrame]:
     """
     Labels each data point and calculates a Silhouette score per k-cluster.

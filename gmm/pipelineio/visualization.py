@@ -9,7 +9,7 @@ from setup.config import QUESTION_COLS
 
 def plot_pca_clusters(X: pd.DataFrame,
                       filename: str, 
-                      ks: tuple[int, ...] = (2, 3, 4)) -> None:
+                      ks: tuple[int, ...] = (2, 4, 6)) -> None:
     """Creates a plot of the principal component analysis using provided cluster sizes."""
     pca = PCA(n_components=2)
     X_pca = pca.fit_transform(X)
