@@ -69,9 +69,9 @@
               K Means partitions the data into a set number of clusters by assigning each participant to the nearest cluster center in feature space. In our analysis, we chose a value of <i>k</i> that balanced interpretability with inter-cluster compactness.
             </p>
             <ul>
-              <li>Replace this paragraph with a brief explanation of how you chose K</li>
-              <li>Describe the typical response profile in each cluster</li>
-              <li>Mention any clusters that look similar and how that compares to other methods</li>
+              <li>We chose <b>k=2</b> using the <b>Elbow Method</b>, which consists of plotting the explained variation as a function of the number of clusters and picking the elbow of the curve as the number of clusters to use. We also compare <b>silhouette scores</b> at different number of clusters.</li>
+              <li>Given than K-means assigns two "hard" clusters, this shows that it could best identify two main regions in the data, being answers that reflect a <b>low-level of Machiavellianism</b> and those reflecting a <b>high-level of Machiavellianism</b>.</li>
+              <li>Compared to other methods, K-means expects more <b>spherical clusters</b> and assigns <b>clear-cut categories</b>.</li>
             </ul>
             <table class="metrics-table">
               <thead>
@@ -84,18 +84,18 @@
               <tbody>
                 <tr>
                   <td>Silhouette score</td>
-                  <td>TODO</td>
-                  <td>Higher values indicate more separated clusters</td>
+                  <td>0.207</td>
+                  <td>Spectral and KMeans both used the same metric of silhouette score for direct comparison.</td>
                 </tr>
                 <tr>
-                  <td>Calinski Harabasz index</td>
-                  <td>TODO</td>
-                  <td>Higher values indicate more distinct clusters</td>
+                  <td>Number of clusters</td>
+                  <td>2</td>
+                  <td>We evaluated values of K ranging from 2 to 4.</td>
                 </tr>
                 <tr>
-                  <td>Davies Bouldin index</td>
-                  <td>TODO</td>
-                  <td>Lower values indicate better separation</td>
+                  <td>Within-Cluster Sum of Squares</td>
+                  <td>150828</td>
+                  <td>Plotted against increasing k values to find the point where the improvement slows down.</td>
                 </tr>
               </tbody>
             </table>
@@ -103,21 +103,43 @@
           <div class="plot-block">
             <figure>
               <div class="plot-placeholder">
-                Insert your main K-Means cluster plot here
+                <img src="images/kmeans/elbow_method.png" alt="Plot showing WCSS for different numbers of clusters">
               </div>
               <figcaption>
-                Suggested plot PCA or t SNE projection colored by cluster label.
+                Elbow method plot of WCSS (within-cluster sum of squares) at different numbers of clusters. It can be observed that the rate of decrease in WCSS sharply slows down at k=2.
               </figcaption>
             </figure>
             <figure>
               <div class="plot-placeholder">
-                Optional second plot for K Means for example within cluster item means
+                <img src="images/kmeans/kmeans_pca.png" alt="PCA plots for different K-means clusters">
               </div>
               <figcaption>
-                Suggested plot average item response profile for each cluster.
+                PCA plot for 2, 3, & 4 clusters showing K-means clustering results using Ward linkage on all 73,489 participants. The Silhouette scores for 2, 3, and 4 clusters are 0.207, 0.124, and 0.125 respectively.
               </figcaption>
             </figure>
           </div>
+        </div>
+        <p>
+          <br>Below are three radar plots representing the <strong>Ten Item Personality Inventory (TIPI) personality responses</strong> for each of the two clusters identified using K-means clustering. Each plot illustrates the <strong>distinct personality response characteristics of each cluster</strong>, providing insights into the varying levels of Machiavellian traits among participants.<br><br>
+        </p>
+        <p>
+          An important item to consider is the line between low and high Machiavellianism is not very clear according to our research. It it clear that a more in-depth analysis would be required to full understand the nuances of Machiavellian traits across individuals. However, these plots provide a foundational understanding of how different personality traits cluster together in relation to Machiavellianism.<br><br>
+        </p>
+        <div class="plot-block-horizontal">
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/kmeans/Cluster_1.png" alt="Radar plot showing average item responses for cluster 1 using K-means clustering">
+            </div>
+            <figcaption>
+              Cluster 1 represents <strong>low-Machiavellian</strong> individuals. This groups seems to be more outgoing, sympathetic, and organized.
+          </figure>
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/kmeans/Cluster_0.png" alt="Radar plot showing average item responses for cluster 0 using K-means clustering">
+            </div>
+            <figcaption>
+              Cluster 0 reflects <strong>high-Machiavellian</strong> individuals. This groups seems to be less outgoing, sympathetic, and organized.
+          </figure>
         </div>
       </div>
     </section>
@@ -135,9 +157,9 @@
               A Gaussian mixture model treats clusters as overlapping probability distributions rather than hard partitions. Each participant receives a probability of belonging to each component, which can reveal more gradual changes between low and high trait levels.
             </p>
             <ul>
-              <li>Explain how you selected the number of components for the model</li>
-              <li>Report any information criteria you used such as BIC or AIC</li>
-              <li>Comment on where GMM agrees or disagrees with K Means</li>
+              <li>The number of components was chosen using BIC, AIC, and log-likelihood.</li>
+              <li>At k=6 we observed see a global minimum of BIC and AIC, and global maximum log-lihood.</li>
+              <li>Based on the PCA plots, GMM seems to be finding clusters as a gradient across the data. Whereas K-means finds distict sections of the data to cluster.</li>
             </ul>
             <table class="metrics-table">
               <thead>
@@ -150,18 +172,18 @@
               <tbody>
                 <tr>
                   <td>BIC</td>
-                  <td>TODO</td>
-                  <td>Lower values indicate a better tradeoff between fit and complexity</td>
+                  <td>146597</td>
+                  <td>Similar to AIC but uses a stronger penalty for model complexity. Favors simpler models more heavily. Lower BIC = better model.</td>
                 </tr>
                 <tr>
                   <td>AIC</td>
-                  <td>TODO</td>
-                  <td>Alternative information criterion for model selection</td>
+                  <td>137571</td>
+                  <td>Balances model fit and complexity using a mild penalty. Lower AIC = better model.</td>
                 </tr>
                 <tr>
-                  <td>Average max membership</td>
-                  <td>TODO</td>
-                  <td>How confident the model is in its assignments</td>
+                  <td>Log-likelihood</td>
+                  <td>-13.48</td>
+                  <td>Measures how well the model explains the data. Higher log-likelihood = better fit.</td>
                 </tr>
               </tbody>
             </table>
@@ -169,21 +191,74 @@
           <div class="plot-block">
             <figure>
               <div class="plot-placeholder">
-                Insert GMM cluster visualization here
+                <img src="images/gmm/metrics.png" alt="Plot showing BIC, AIC, and log-likelihood for different numbers of clusters">
               </div>
               <figcaption>
-                Suggested plot projection colored by most likely component.
+                Finding number of clusters with normalized BIC, AIC, and log-likelihood.
               </figcaption>
             </figure>
             <figure>
               <div class="plot-placeholder">
-                Optional membership heatmap or density plot
+                <img src="images/gmm/gmm_pca.png" alt="PCA plots for different GMM clusters">
               </div>
               <figcaption>
-                Suggested plot matrix of membership probabilities for a sample of participants.
+                PCA plot for 2, 4, & 6 clusters showing GMM clustering results using Ward linkage on all 73,489 participants. The Silhouette scores for 2, 4, and 6 clusters are 0.05, 0.03, and -0.04 respectively.
               </figcaption>
             </figure>
           </div>
+        </div>
+        <p>
+          <br>Below are three radar plots representing the <strong>Ten Item Personality Inventory (TIPI) personality responses</strong> for each of the two clusters identified using GMM clustering. Each plot illustrates the <strong>distinct personality response characteristics of each cluster</strong>, providing insights into the varying levels of Machiavellian traits among participants.<br><br>
+        </p>
+        <p>
+          An important item to consider is the line between low and high Machiavellianism is not very clear according to our research. It it clear that a more in-depth analysis would be required to full understand the nuances of Machiavellian traits across individuals. However, these plots provide a foundational understanding of how different personality traits cluster together in relation to Machiavellianism.<br><br>
+        </p>
+        <p>
+          The middle clusterings seems to be very varied. But, the extreme low and high Machiavellian clusters show a trend the higher Machiavellian group being more axious, intraverted, reserved, and unsympathetic.<br><br>
+        </p>
+        <div class="plot-block-horizontal">
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/gmm/Cluster_2.png" alt="Radar plot showing average item responses for cluster using GMM clustering">
+            </div>
+            <figcaption>
+              Cluster represents <strong>low-Machiavellian</strong> individuals.
+          </figure>
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/gmm/Cluster_4.png" alt="Radar plot showing average item responses for cluster using GMM clustering">
+            </div>
+            <figcaption>
+              Cluster represents <strong>lower-Machiavellian</strong> individuals.
+          </figure>
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/gmm/Cluster_3.png" alt="Radar plot showing average item responses for cluster using GMM clustering">
+            </div>
+            <figcaption>
+              Cluster represents <strong>lower-middle-Machiavellian</strong> individuals.
+          </figure>
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/gmm/Cluster_5.png" alt="Radar plot showing average item responses for cluster using GMM clustering">
+            </div>
+            <figcaption>
+              Cluster represents <strong>higher-middle-Machiavellian</strong> individuals.
+          </figure>
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/gmm/Cluster_1.png" alt="Radar plot showing average item responses for cluster using GMM clustering">
+            </div>
+            <figcaption>
+              Cluster represents <strong>higher-Machiavellian</strong> individuals.
+          </figure>
+          <figure>
+            <div class="plot-placeholder">
+              <img src="images/gmm/Cluster_0.png" alt="Radar plot showing average item responses for cluster 0 using GMM clustering">
+            </div>
+            <figcaption>
+              Cluster reflects <strong>high-Machiavellian</strong> individuals.
+          </figure>
         </div>
       </div>
     </section>
@@ -264,18 +339,18 @@
           <div class="plot-block-horizontal">
             <figure>
               <div class="plot-placeholder">
-                <img src="images/spectral/Cluster_0.png" alt="Degree distribution plot of the similarity graph used in spectral clustering">
+                <img src="images/spectral/Cluster_1.png" alt="Degree distribution plot of the similarity graph used in spectral clustering">
               </div>
               <figcaption>
-                Cluster 0 represents low-Machiavellian individuals. These individuals scored higher in traits like emotionally stable, dependable, and disciplined, while scoring lower in traits like careless, uncreative, or easily upset.
+                Cluster 1 represents low-Machiavellian individuals. These individuals scored higher in traits like emotionally stable, dependable, and disciplined, while scoring lower in traits like careless, uncreative, or easily upset.
               </figcaption>
             </figure>
             <figure>
               <div class="plot-placeholder">
-                <img src="images/spectral/Cluster_1.png" alt="Degree distribution plot of the similarity graph used in spectral clustering">
+                <img src="images/spectral/Cluster_0.png" alt="Degree distribution plot of the similarity graph used in spectral clustering">
               </div>
               <figcaption>
-                Cluster 1 represents high-Machiavellian individuals. These individuals scored higher in traits like extraverted, anxious, and disorganized, while scoring lower in traits like reserved, calm, and sympathetic.
+                Cluster 0 represents high-Machiavellian individuals. These individuals scored higher in traits like extraverted, anxious, and disorganized, while scoring lower in traits like reserved, calm, and sympathetic.
               </figcaption>
             </figure>
           </div>
