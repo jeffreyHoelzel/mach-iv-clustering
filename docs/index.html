@@ -66,10 +66,10 @@
         <div class="algorithm-body">
           <div class="text-block">
             <p>
-              K Means partitions the data into a set number of clusters by assigning each participant to the nearest cluster center in feature space. In our analysis, we chose a value of <i>k</i> that balanced interpretability with inter-cluster compactness.
+              K-Means partitions the data into a set number of clusters by assigning each participant to the nearest cluster center in feature space. In our analysis, we chose a value of <i>k</i> that balanced interpretability with inter-cluster compactness.
             </p>
             <ul>
-              <li>We chose <b>k=2</b> using the <b>Elbow Method</b>, which consists of plotting the explained variation as a function of the number of clusters and picking the elbow of the curve as the number of clusters to use. We also compare <b>silhouette scores</b> at different number of clusters.</li>
+              <li>We chose <b>k=2</b> using the <b>Elbow Method</b>, which consists of plotting the explained variation as a function of the number of clusters and picking the elbow of the curve as the number of clusters to use. We also compare <b>silhouette scores</b> at different numbers of clusters.</li>
               <li>Given that K-means assigns two "hard" clusters, this shows that it could best identify two main regions in the data, being answers that reflect a <b>low-level of Machiavellianism</b> and those reflecting a <b>high-level of Machiavellianism</b>.</li>
               <li>Compared to other methods, K-means expects more <b>spherical clusters</b> and assigns <b>clear-cut categories</b>.</li>
             </ul>
@@ -85,7 +85,7 @@
                 <tr>
                   <td>Silhouette score</td>
                   <td>0.207</td>
-                  <td>Spectral and KMeans both used the same metric of silhouette score for direct comparison.</td>
+                  <td>Spectral and K-Means both used the same metric of silhouette score for direct comparison.</td>
                 </tr>
                 <tr>
                   <td>Number of clusters</td>
@@ -123,7 +123,7 @@
           <br>Below are three radar plots representing the <strong>Ten Item Personality Inventory (TIPI) personality responses</strong> for each of the two clusters identified using K-means clustering. Each plot illustrates the <strong>distinct personality response characteristics of each cluster</strong>, providing insights into the varying levels of Machiavellian traits among participants.<br><br>
         </p>
         <p>
-          An important item to consider is the line between low and high Machiavellianism is not very clear according to our research. It it clear that a more in-depth analysis would be required to full understand the nuances of Machiavellian traits across individuals. However, these plots provide a foundational understanding of how different personality traits cluster together in relation to Machiavellianism.<br><br>
+          An important item to consider is the line between low and high Machiavellianism is not very clear according to our research. It it clear that a more in-depth analysis would be required to fully understand the nuances of Machiavellian traits across individuals. However, these plots provide a foundational understanding of how different personality traits cluster together in relation to Machiavellianism.<br><br>
         </p>
         <div class="plot-block-horizontal">
           <figure>
@@ -159,7 +159,7 @@
             <ul>
               <li>The number of components was chosen using <b>BIC</b>, <b>AIC</b>, and <b>log-likelihood</b>.</li>
               <li>At k=6 we observed see a <b>global minimum</b> of BIC and AIC, and <b>global maximum</b> log-likelihood.</li>
-              <li>Based on the PCA plots, GMM seems to be finding clusters as a <b>gradient across the data</b>. Whereas K-means finds distict sections of the data to cluster.</li>
+              <li>Based on the PCA plots, GMM seems to be finding clusters as a <b>gradient across the data</b>. Whereas K-means finds distinct sections of the data to cluster.</li>
             </ul>
             <table class="metrics-table">
               <thead>
@@ -211,7 +211,7 @@
           <br>Below are three radar plots representing the <strong>Ten Item Personality Inventory (TIPI) personality responses</strong> for each of the two clusters identified using GMM clustering. Each plot illustrates the <strong>distinct personality response characteristics of each cluster</strong>, providing insights into the varying levels of Machiavellian traits among participants.<br><br>
         </p>
         <p>
-          An important item to consider is the line between low and high Machiavellianism is not very clear according to our research. It it clear that a more in-depth analysis would be required to full understand the nuances of Machiavellian traits across individuals. However, these plots provide a foundational understanding of how different personality traits cluster together in relation to Machiavellianism.<br><br>
+          An important item to consider is the line between low and high Machiavellianism is not very clear according to our research. It it clear that a more in-depth analysis would be required to fully understand the nuances of Machiavellian traits across individuals. However, these plots provide a foundational understanding of how different personality traits cluster together in relation to Machiavellianism.<br><br>
         </p>
         <p>
           The middle clusterings seems to be very varied. But, the extreme low and high Machiavellian clusters show a trend the higher Machiavellian group being more anxious, introverted, reserved, and unsympathetic.<br><br>
@@ -429,7 +429,7 @@
           <br>Below are three radar plots representing the <strong>Ten Item Personality Inventory (TIPI) personality responses</strong> for each of the three clusters identified using hierarchical clustering with Ward linkage. Each plot illustrates the <strong>distinct personality response characteristics of each cluster</strong>, providing insights into the varying levels of Machiavellian traits among participants.<br><br>
         </p>
         <p>
-          An important item to consider is the line between low and high Machiavellianism is not very clear according to our research. It it clear that a more in-depth analysis would be required to full understand the nuances of Machiavellian traits across individuals. However, these plots provide a foundational understanding of how different personality traits cluster together in relation to Machiavellianism.<br><br>
+          An important item to consider is the line between low and high Machiavellianism is not very clear according to our research. It it clear that a more in-depth analysis would be required to fully understand the nuances of Machiavellian traits across individuals. However, these plots provide a foundational understanding of how different personality traits cluster together in relation to Machiavellianism.<br><br>
         </p>
         <div class="plot-block-horizontal">
           <figure>
