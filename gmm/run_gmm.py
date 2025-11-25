@@ -4,7 +4,7 @@ from pipelineio.visualization import plot_pca_clusters, plot_mode_cluster_heatma
 
 def main() -> None:
     """Main script to run pipeline. Using k=2 as best seen in Jupyter Notebook testing."""
-    X = prep_sample(save=True, use_all=False)
+    X = prep_sample(save=True, use_all=True)
     results, summary = label_and_score(X, save=True)
     print(summary)
 
