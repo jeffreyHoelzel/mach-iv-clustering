@@ -94,6 +94,26 @@ main {
   font-size: 0.96rem;
 }
 
+.dataset-sample-table {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+}
+
+.dataset-sample-table h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.dataset-sample-table p {
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.dataset-sample-table .metrics-table {
+  font-size: 0.8rem;
+  max-width: 720px;
+}
+
 .summary-box {
   background-color: #f3f4f6;
   border-radius: 0.8rem;
@@ -276,5 +296,12 @@ footer p {
 @media (max-width: 1024px) {
   .plot-wide .plot-placeholder {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .dataset-sample-table .metrics-table th,
+  .dataset-sample-table .metrics-table td {
+    padding: 0.25rem 0.35rem;
   }
 }
