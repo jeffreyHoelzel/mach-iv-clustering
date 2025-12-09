@@ -18,7 +18,7 @@
         <li><a href="#gmm">Gaussian Mixture Model</a></li>
         <li><a href="#spectral">Spectral Clustering</a></li>
         <li><a href="#hierarchical">Hierarchical Clustering</a></li>
-        <li><a href="#future-work">Future Work</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </nav>
 
@@ -584,23 +584,21 @@
       </div>
     </section>
 
-    <!-- Future work -->
-     <section id="future-work" class="algorithm-section">
+    <!-- Conclusion -->
+    <section id="conclusion" class="algorithm-section">
       <div class="algorithm-card">
         <div class="algorithm-header">
-          <h2>Future Work</h2>
+          <h2>Conclusion</h2>
         </div>
         <div class="algorithm-body-text-only">
           <div class="text-block">
-            We recognize several avenues for future exploration to enhance our understanding of the MACH-IV personality data. Not to mention, the inherent flaws in our current implementation that could be improved upon, namely the use of clustering algorithms on personality-based data. Below are a few ideas for future work:
-            <ol>
-              <li><strong>Train More Expressive Models</strong> - Our current clustering methods rely on distance-based or linear separations. A future direction could be to train <strong>nonlinear models</strong> like neural networks, variational autoencoders, or deep mixture models that may be able to capture more complex and subtle psychological patterns that clustering algorithms simply cannot.</li>
-              <li><strong>Use Embeddings Instead of Raw Likert Vectors</strong> - We could represent participants using <strong>learned representations</strong> (possibly from an autoencoder). This would allow for models to learn richer relationships between items, reduce noise, and improve cluster separation.</li>
-              <li><strong>Use Supervised Learning to Build a Predictive Model</strong> - The inherent flaw with unsupervided machine learning is you must make assumptions about the data beforehand and also rely solely on whatever algorithm chosen to actually find patterns. A more robust approach could be to collect <strong>labeled data</strong> where participants are pre-categorized into specific levels of Machiavellianism and then train a supervised model to predict the labels directly.</li>
-            </ol>
+            <p>
+              In this project we applied several clustering algorithms, including K-Means, Gaussian mixture models, spectral clustering, and hierarchical clustering with Ward linkage, to a large sample of MACH-IV response vectors. Across methods we consistently observed that clear, compact clusters are difficult to obtain and that Machiavellianism in this dataset behaves more like a spectrum rather than a set of discrete types, which is reflected in the relatively low silhouette scores. Even so, the resulting clusters reveal meaningful contrasts between lower and higher Machiavellian profiles and highlight how related personality traits co-vary across groups. Capturing more nuanced structure in this space will likely require more expressive nonlinear models, such as neural networks or autoencoder based representations, that can learn richer embeddings beyond the raw Likert-scale vectors.
+            </p>
           </div>
+        </div>
       </div>
-     </section>
+    </section>
 
     <footer>
       <p>
