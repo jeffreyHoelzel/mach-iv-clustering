@@ -18,8 +18,9 @@ This project applies four different clustering algorithms to the [MACH-IV datase
 └── README.md                  # you are here!
 ```
 ## Dataset
-- The primary dataset used is a subset of the MACH-IV scale containing 20 likert-style questions where 5=strongly agree and 1=strongly disagree.
-- The data directory includes the raw responses and any demographic or auxillary variables (i.e., age, gender, location, etc.).
+- The primary dataset used is a subset of the MACH-IV scale containing 20 likert-style questions where 5=strongly agree and 1=strongly disagree, obtained from the [`Open-Source Psychometrics Project`](https://openpsychometrics.org/_rawdata/)
+- The data directory includes the raw responses and various demographic or auxillary variables (i.e., age, gender, location, etc.).
+- We specifically identified relationships between clustered Machiavellianism levels and the personality traits based off of the Ten Item Personality Inventory (TIPI).
 - We store the pre-processed data in a CSV file located at [`data/MACH_data/data.cleaned.csv`](https://github.com/jeffreyHoelzel/mach-iv-clustering/tree/main/data/MACH_data).
 
 ## Getting Started
