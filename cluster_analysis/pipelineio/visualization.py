@@ -6,6 +6,7 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from .io_utils import save_fig
 from setup.config import QUESTION_COLS
+import textwrap
 
 def plot_pca_clusters(X: pd.DataFrame,
                       filename: str, 
@@ -66,8 +67,11 @@ def radar_chart(attributes, scores, title="Radar Chart"):
 
     # Add attribute labels
     ax.set_xticks(angles[:-1])
-    ax.set_xticklabels(attributes)
 
-    ax.set_title(title, y=1.1)
+    wrapped = ["\n".join(textwrap.wrap(l, 12)) for l in attributes]
+    ax.set_xticklabels(wrapped, fontsize=20)
+
+
+    ax.set_title(title, y=1.1, fontsize=20)
 
     save_fig(fig, "plots", "radar", f"{title.replace(" ", "_")}.png")
