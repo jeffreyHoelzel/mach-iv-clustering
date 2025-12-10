@@ -31,6 +31,50 @@ header p {
   opacity: 0.9;
 }
 
+.contact-grid {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem 2rem;
+}
+
+.contact-person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+  font-size: 0.85rem;
+}
+
+.contact-name {
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.contact-links {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.contact-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: opacity 0.15s ease;
+}
+
+.contact-links a:hover {
+  opacity: 1;
+}
+
+.divider {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 nav {
   background-color: #ffffff;
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
@@ -92,6 +136,26 @@ main {
 
 .intro-grid p {
   font-size: 0.96rem;
+}
+
+.dataset-sample-table {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+}
+
+.dataset-sample-table h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.dataset-sample-table p {
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.dataset-sample-table .metrics-table {
+  font-size: 0.8rem;
+  max-width: 720px;
 }
 
 .summary-box {
@@ -222,6 +286,36 @@ figcaption {
   margin-top: 0.25rem;
 }
 
+.architecture-block {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.architecture-block h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.architecture-img {
+  padding: 1.2rem;
+  border-radius: 0.75rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.architecture-img img {
+  width: min(100%, 1400px);
+  height: auto;
+  object-fit: contain;
+}
+
+.architecture-caption {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.35rem;
+}
+
 .metrics-table {
   width: 100%;
   border-collapse: collapse;
@@ -270,6 +364,19 @@ footer p {
 
   nav ul {
     justify-content: flex-start;
+  }
+
+  .contact-grid {
+    gap: 0.75rem 1.2rem;
+  }
+
+  .contact-person {
+    min-width: 120px;
+  }
+
+  .dataset-sample-table .metrics-table th,
+  .dataset-sample-table .metrics-table td {
+    padding: 0.25rem 0.35rem;
   }
 }
 

@@ -8,22 +8,61 @@
   <body>
     <header>
       <h1>MACH-IV Clustering Exploration</h1>
-      <p>Using clustering algorithms to explore patterns in Machiavellianism (MACH-IV) personality data. Created by Jeffrey Hoelzel Jr, Sean Golez, and Luke Bowen.</p>
+      <p>Using clustering algorithms to explore patterns in Machiavellianism (MACH-IV) personality data. Created by Jeffrey Hoelzel Jr, Sean Golez, and Luke Bowen. <i>Contact us using any of the methods listed below.</i></p>
+
+      <!-- Jeff's contact info -->
+      <div class="contact-grid">
+        <div class="contact-person">
+          <span class="contact-name">Jeffrey Hoelzel Jr</span>
+          <div class="contact-links">
+            <a href="mailto:jmh2338@nau.edu">Email</a>
+            <span class="divider">|</span>
+            <a href="https://github.com/jeffreyHoelzel" target="_blank">GitHub</a>
+            <span class="divider">|</span>
+            <a href="https://www.linkedin.com/in/jeffrey-hoelzel-jr/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Sean's contact info -->
+        <div class="contact-person">
+          <span class="contact-name">Sean Golez</span>
+          <div class="contact-links">
+            <a href="mailto:scg283@nau.edu">Email</a>
+            <span class="divider">|</span>
+            <a href="https://github.com/SeanGolez" target="_blank">GitHub</a>
+            <span class="divider">|</span>
+            <a href="https://www.linkedin.com/in/sean-golez-b28600346/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Luke's contact info -->
+        <div class="contact-person">
+          <span class="contact-name">Luke Bowen</span>
+          <div class="contact-links">
+            <a href="mailto:lcb275@nau.edu">Email</a>
+            <span class="divider">|</span>
+            <a href="https://github.com/LukeBowen85" target="_blank">GitHub</a>
+            <span class="divider">|</span>
+            <a href="https://www.linkedin.com/in/luke-bowen85/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
     </header>
 
     <nav>
       <ul>
+        <li><a href="#overview">Overview</a></li>
         <li><a href="#dataset">Dataset</a></li>
         <li><a href="#kmeans">K-Means</a></li>
         <li><a href="#gmm">Gaussian Mixture Model</a></li>
         <li><a href="#spectral">Spectral Clustering</a></li>
         <li><a href="#hierarchical">Hierarchical Clustering</a></li>
-        <li><a href="#future-work">Future Work</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </nav>
 
     <main>
-      <section class="intro-card">
+      <section id="overview" class="intro-card">
         <h2>Project Overview</h2>
         <p>We worked with a sample of Machiavellian response vectors where each participant answered twenty items on a Likert-scale from one to five. Each method grouped people based on their answer patterns, allowing us to compare how different algorithms carve the data into clusters that might correspond to low, medium, and high levels of Machiavellian traits. The dataset used can be found <a target="_blank" href="https://openpsychometrics.org/_rawdata/">here</a>.</p>
         <div class="summary-box">
@@ -54,6 +93,133 @@
               There is also much more information provided in this datasets beyond the 20 questions we focused on for this project. When downloading the dataset, there will also be a <strong>codebook provided</strong> that describes all the additional demographic and psychometric variables collected from participants. You can find the raw dataset <a target="_blank" href="https://openpsychometrics.org/_rawdata/">here</a> under the description <i>"Answers to the Machivallianism Test, a version of the MACH-IV from Christie and Geis (1970)."</i>
             </p>
           </div>
+          <div class="dataset-sample-table">
+            <h3>Sample MACH-IV Responses Used for Clustering</h3>
+            <p>Below is a sample of four particpants' responses to the 20 MACH-IV items, scored on a 1-5 likert scale.</p>
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th>Participant</th>
+                  <th>Q1A</th>
+                  <th>Q2A</th>
+                  <th>Q3A</th>
+                  <th>Q4A</th>
+                  <th>Q5A</th>
+                  <th>Q6A</th>
+                  <th>Q7A</th>
+                  <th>Q8A</th>
+                  <th>Q9A</th>
+                  <th>Q10A</th>
+                  <th>Q11A</th>
+                  <th>Q12A</th>
+                  <th>Q13A</th>
+                  <th>Q14A</th>
+                  <th>Q15A</th>
+                  <th>Q16A</th>
+                  <th>Q17A</th>
+                  <th>Q18A</th>
+                  <th>Q19A</th>
+                  <th>Q20A</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>3</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>3</td>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>4</td>
+                  <td>4</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>4</td>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>4</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
      </section>
 
     <!-- K Means -->
@@ -140,6 +306,15 @@
             <figcaption>
               Cluster 0 reflects <strong>high-Machiavellian</strong> individuals. This groups seems to be less outgoing, sympathetic, and organized.
           </figure>
+        </div>
+        <div class="architecture-block">
+          <h3>K-Means Architecture</h3>
+          <div class="plot-placeholder architecture-image">
+            <img src="images/kmeans/kmeans_architecture.drawio.png" alt="Architecture diagram for K-Means algorithm">
+          </div>
+          <figcaption>
+            End-to-end architecture for our K-Means workflow, showing how the MACH-IV dataset flows through preprocessing, clustering, labeling & scoring, and final cluster analysis.
+          </figcaption>
         </div>
       </div>
     </section>
@@ -260,6 +435,15 @@
               Cluster reflects <strong>high-Machiavellian</strong> individuals.
           </figure>
         </div>
+        <div class="architecture-block">
+          <h3>Gaussian Mixture Model Architecture</h3>
+          <div class="plot-placeholder architecture-image">
+            <img src="images/gmm/gmm_architecture.drawio.png" alt="Architecture diagram for GMM algorithm">
+          </div>
+          <figcaption>
+            End-to-end architecture for our GMM workflow, showing how the MACH-IV dataset flows through preprocessing, clustering, labeling & scoring, and final cluster analysis.
+          </figcaption>
+        </div>
       </div>
     </section>
 
@@ -353,6 +537,15 @@
                 Cluster 0 represents high-Machiavellian individuals. These individuals scored higher in traits like extraverted, anxious, and disorganized, while scoring lower in traits like reserved, calm, and sympathetic.
               </figcaption>
             </figure>
+          </div>
+          <div class="architecture-block">
+            <h3>Spectral Clustering Architecture</h3>
+            <div class="plot-placeholder architecture-image">
+              <img src="images/spectral/spectral_architecture.drawio.png" alt="Architecture diagram for spectral clustering algorithm">
+            </div>
+            <figcaption>
+              End-to-end architecture for our spectral clustering workflow, showing how the MACH-IV dataset flows through preprocessing, labeling & scoring, picking k, plotting spectral embeddings, and final cluster analysis.
+            </figcaption>
           </div>
         </div>
       </div>
@@ -454,26 +647,37 @@
               Cluster 1 reflects <strong>high-Machiavellian</strong> tendencies characterized by low warmth, high criticalness, strong emotional control, and strategic thinking. These individuals display traits associated with competitiveness, manipulation, and a pragmatic worldview. Their combination of low agreeableness and high conscientiousness aligns with classic Mach personality patterns.
           </figure>
         </div>
+        <div class="architecture-block">
+          <h3>Hierarchical Clustering Architecture</h3>
+          <div class="plot-placeholder architecture-image">
+            <img src="images/hierarchical/hierarchical_architecture.drawio.png" alt="Architecture diagram for hierarchical clustering algorithm">
+          </div>
+          <figcaption>
+            End-to-end architecture for our hierarchical clustering workflow, showing how the MACH-IV dataset flows through preprocessing, Ward linkage computation, dendrogram generation, scoring, and final cluster analysis.
+          </figcaption>
+        </div>
       </div>
     </section>
 
-    <!-- Future work -->
-     <section id="future-work" class="algorithm-section">
+    <!-- Conclusion -->
+    <section id="conclusion" class="algorithm-section">
       <div class="algorithm-card">
         <div class="algorithm-header">
-          <h2>Future Work</h2>
+          <h2>Conclusion</h2>
         </div>
         <div class="algorithm-body-text-only">
           <div class="text-block">
-            We recognize several avenues for future exploration to enhance our understanding of the MACH-IV personality data. Not to mention, the inherent flaws in our current implementation that could be improved upon, namely the use of clustering algorithms on personality-based data. Below are a few ideas for future work:
-            <ol>
-              <li><strong>Train More Expressive Models</strong> - Our current clustering methods rely on distance-based or linear separations. A future direction could be to train <strong>nonlinear models</strong> like neural networks, variational autoencoders, or deep mixture models that may be able to capture more complex and subtle psychological patterns that clustering algorithms simply cannot.</li>
-              <li><strong>Use Embeddings Instead of Raw Likert Vectors</strong> - We could represent participants using <strong>learned representations</strong> (possibly from an autoencoder). This would allow for models to learn richer relationships between items, reduce noise, and improve cluster separation.</li>
-              <li><strong>Use Supervised Learning to Build a Predictive Model</strong> - The inherent flaw with unsupervided machine learning is you must make assumptions about the data beforehand and also rely solely on whatever algorithm chosen to actually find patterns. A more robust approach could be to collect <strong>labeled data</strong> where participants are pre-categorized into specific levels of Machiavellianism and then train a supervised model to predict the labels directly.</li>
-            </ol>
+            <p>
+              In this project we applied several clustering algorithms, including K-Means, Gaussian mixture models, spectral clustering, and hierarchical clustering with Ward linkage, to a large sample of MACH-IV response vectors.
+              <br>Across methods we consistently observed that clear, compact clusters are difficult to obtain and that Machiavellianism in this dataset behaves more like a spectrum rather than a set of discrete types, which is reflected in the relatively low silhouette scores. Even so, the resulting clusters reveal meaningful contrasts between lower and higher Machiavellian profiles and highlight how related personality traits co-vary across groups.
+              <br>All clustering methods revealed that higher Machiavellianism is consistently associated with being more reserved/quiet, less sympathetic/warm, and less extraverted/enthuiastic. Furthermore, some clustering methods show that higher Machiavellianism is associated with being less anxious/easily upset, more critical/quarrelsome, and more dependable/self-disciplined.
+              <br>We found that K-means and hierarchical clustering produced similar results because both assume spherical clusters. And, GMM and spectral clustering produced similar results because both handle flexible, non-linear cluster shapes.
+              <br>Capturing more nuanced structure in this space will likely require more expressive nonlinear models, such as neural networks or autoencoder based representations, that can learn richer embeddings beyond the raw Likert-scale vectors.
+            </p>
           </div>
+        </div>
       </div>
-     </section>
+    </section>
 
     <footer>
       <p>
