@@ -8,11 +8,50 @@
   <body>
     <header>
       <h1>MACH-IV Clustering Exploration</h1>
-      <p>Using clustering algorithms to explore patterns in Machiavellianism (MACH-IV) personality data. Created by Jeffrey Hoelzel Jr, Sean Golez, and Luke Bowen.</p>
+      <p>Using clustering algorithms to explore patterns in Machiavellianism (MACH-IV) personality data. Created by Jeffrey Hoelzel Jr, Sean Golez, and Luke Bowen. <i>Contact us using any of the methods listed below.</i></p>
+
+      <!-- Jeff's contact info -->
+      <div class="contact-grid">
+        <div class="contact-person">
+          <span class="contact-name">Jeffrey Hoelzel Jr</span>
+          <div class="contact-links">
+            <a href="mailto:jmh2338@nau.edu">Email</a>
+            <span class="divider">|</span>
+            <a href="https://github.com/jeffreyHoelzel" target="_blank">GitHub</a>
+            <span class="divider">|</span>
+            <a href="https://www.linkedin.com/in/jeffrey-hoelzel-jr/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Sean's contact info -->
+        <div class="contact-person">
+          <span class="contact-name">Sean Golez</span>
+          <div class="contact-links">
+            <a href="mailto:scg283@nau.edu">Email</a>
+            <span class="divider">|</span>
+            <a href="https://github.com/SeanGolez" target="_blank">GitHub</a>
+            <span class="divider">|</span>
+            <a href="https://www.linkedin.com/in/sean-golez-b28600346/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Luke's contact info -->
+        <div class="contact-person">
+          <span class="contact-name">Luke Bowen</span>
+          <div class="contact-links">
+            <a href="mailto:lcb275@nau.edu">Email</a>
+            <span class="divider">|</span>
+            <a href="https://github.com/LukeBowen85" target="_blank">GitHub</a>
+            <span class="divider">|</span>
+            <a href="https://www.linkedin.com/in/luke-bowen85/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
     </header>
 
     <nav>
       <ul>
+        <li><a href="#overview">Overview</a></li>
         <li><a href="#dataset">Dataset</a></li>
         <li><a href="#kmeans">K-Means</a></li>
         <li><a href="#gmm">Gaussian Mixture Model</a></li>
@@ -23,7 +62,7 @@
     </nav>
 
     <main>
-      <section class="intro-card">
+      <section id="overview" class="intro-card">
         <h2>Project Overview</h2>
         <p>We worked with a sample of Machiavellian response vectors where each participant answered twenty items on a Likert-scale from one to five. Each method grouped people based on their answer patterns, allowing us to compare how different algorithms carve the data into clusters that might correspond to low, medium, and high levels of Machiavellian traits. The dataset used can be found <a target="_blank" href="https://openpsychometrics.org/_rawdata/">here</a>.</p>
         <div class="summary-box">

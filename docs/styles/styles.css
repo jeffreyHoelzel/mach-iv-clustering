@@ -31,6 +31,50 @@ header p {
   opacity: 0.9;
 }
 
+.contact-grid {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem 2rem;
+}
+
+.contact-person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+  font-size: 0.85rem;
+}
+
+.contact-name {
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.contact-links {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.contact-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: opacity 0.15s ease;
+}
+
+.contact-links a:hover {
+  opacity: 1;
+}
+
+.divider {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 nav {
   background-color: #ffffff;
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
@@ -321,17 +365,23 @@ footer p {
   nav ul {
     justify-content: flex-start;
   }
+
+  .contact-grid {
+    gap: 0.75rem 1.2rem;
+  }
+
+  .contact-person {
+    min-width: 120px;
+  }
+
+  .dataset-sample-table .metrics-table th,
+  .dataset-sample-table .metrics-table td {
+    padding: 0.25rem 0.35rem;
+  }
 }
 
 @media (max-width: 1024px) {
   .plot-wide .plot-placeholder {
     max-width: 100%;
-  }
-}
-
-@media (max-width: 540px) {
-  .dataset-sample-table .metrics-table th,
-  .dataset-sample-table .metrics-table td {
-    padding: 0.25rem 0.35rem;
   }
 }
