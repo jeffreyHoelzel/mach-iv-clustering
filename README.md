@@ -63,16 +63,17 @@ python <algorithm>/run_<algorithm>.py
 scp path/to/mach-iv-clustering/MACH_data/data.cleaned.csv \
 <NAU_ID>@monsoon.hpc.nau.edu:/scratch/<NAU_ID>      # ex. NAU ID: abc123
 ```
-5. SCP the Bash shell script and .pyz files corresponding for the algorithm you want to run to your home directory:
+5. SCP the Bash shell script, .pyz files corresponding for the algorithm you want to run, and the `environment.yml` file to your home directory:
 ```bash
 scp path/to/mach-iv-clustering/<algorithm>/hpc/run_<algorithm>_clustering.pyz \
 path/to/mach-iv-clustering/<algorithm>/hpc/run_<algorithm>.sh \
+path/to/mach-iv-clustering/environment.yml \
 <NAU_ID>@monsoon.hpc.nau.edu:~/
 ```
-6. Set up a Conda virtual environment your job can activate (update .sh script with environment name):
+6. Set up a Conda virtual environment your job can activate (update .sh script with environment name from .yml file):
 ```bash
 module load anaconda3
-conda create --name my_env      # creates a conda virtual environment named 'my_env'
+conda env create -f environment.yml # creates a Conda environment named 'mach-iv-clustering'
 ```
 7. Submit a new job (script takes care of dependency installation):
 ```bash
@@ -82,4 +83,9 @@ sbatch run_<algorithm>.sh
 ```bash
 squeue --job <job_id>            # for GPU queue
 jobstats -r                      # for any running jobs
+```
+
+9. Once the job is complete, you can view the results in your `scratch/<NAU_ID>/` directory and SCP the results back to your machine.
+```bash
+cd /scratch/$USER
 ```
